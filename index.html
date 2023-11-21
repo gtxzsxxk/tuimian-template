@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>推荐免试攻读研究生</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            color: #7c7c7c !important;
+        }
+
+        .headtd {
+            text-align: right;
+            font-weight: bold;
+            color: #787878;
+        }
+
+        tr {
+            height: 30px;
+        }
+
+        .panel {
+            margin-bottom: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" style="margin-top:50px" id="app">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="color: #7CA4A3;font-weight: bold;">
+                            志愿信息
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <table style="margin: 0 auto;">
+                            <tr>
+                                <td class="headtd">层次</td>
+                                <td>：</td>
+                                <td>{{stutype}}</td>
+                            </tr>
+                            <tr>
+                                <td class="headtd">单位</td>
+                                <td>：</td>
+                                <td>{{institute}}</td>
+                            </tr>
+                            <tr>
+                                <td class="headtd">院系</td>
+                                <td>：</td>
+                                <td>{{department}}</td>
+                            </tr>
+                            <tr>
+                                <td class="headtd">专业</td>
+                                <td>：</td>
+                                <td>{{major}}</td>
+                            </tr>
+                            <tr>
+                                <td class="headtd">学习方式</td>
+                                <td>：</td>
+                                <td>{{studytype}}</td>
+                            </tr>
+                            <tr>
+                                <td class="headtd">研究方向</td>
+                                <td>：</td>
+                                <td>{{direction}}</td>
+                            </tr>
+                            <tr>
+                                <td class="headtd">导师</td>
+                                <td>：</td>
+                                <td>{{boss}}</td>
+                            </tr>
+                            <tr>
+                                <td class="headtd">专项计划类型</td>
+                                <td>：</td>
+                                <td>{{var1}}</td>
+                            </tr>
+                            <tr>
+                                <td class="headtd">就业类型</td>
+                                <td>：</td>
+                                <td>{{var2}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"
+                            style="color: #989259;font-weight:bold;text-shadow: 1px 1px 1px #dccd40;">
+                            待录取通知
+                            <small style="color: #7c7c7c;font-weight:initial;text-shadow: initial;font-size: 13px;">
+                                接受或拒绝待录取通知后，将无法更改
+                            </small>
+                        </h3>
+
+                    </div>
+                    <div class="panel-body">
+                        <div style="padding-bottom: 10px;">
+                            <small style="font-size: 13px;">
+                                {{office}}
+                                <small style="font-size: 12px;">
+                                    {{enrolltime}}
+                                </small>
+                            </small>
+                        </div>
+                        <div style="width:90%;margin:0 auto;height: 100px;background-color: #E3F0F8;padding: 10px;">
+                            <div style="margin-bottom: 12px;"><span
+                                    style="font-size: 13px;font-weight: bold;color: #787878;">请及时接受待录取通知。</span></div>
+
+                            <div style="background-color: #CACCD0;margin: 0 auto;width:fit-content;height: 40px;text-align: center;padding-left: 15px;padding-right: 15px;">
+                                <span style="line-height: 40px;font-size: 15px;color:#198e2b;font-weight:bold;">您于{{acc_time}}接受了{{institute}}的待录取通知</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row" style="margin-top: 100px;">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <table style="margin: 0 auto;">
+                    <tr>
+                        <td class="headtd">层次</td>
+                        <td>：</td>
+                        <td>
+                            <input type="text" v-model="stutype" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="headtd">单位</td>
+                        <td>：</td>
+                        <td>
+                            <input type="text" v-model="institute" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="headtd">院系</td>
+                        <td>：</td>
+                        <td>
+                            <input type="text" v-model="department" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="headtd">专业</td>
+                        <td>：</td>
+                        <td>
+                            <input type="text" v-model="major" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="headtd">学习方式</td>
+                        <td>：</td>
+                        <td>
+                            <input type="text" v-model="studytype" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="headtd">研究方向</td>
+                        <td>：</td>
+                        <td>
+                            <input type="text" v-model="direction" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="headtd">导师</td>
+                        <td>：</td>
+                        <td>
+                            <input type="text" v-model="boss" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="headtd">专项计划类型</td>
+                        <td>：</td>
+                        <td>
+                            <input type="text" v-model="var1" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="headtd">就业类型</td>
+                        <td>：</td>
+                        <td>
+                            <input type="text" v-model="var2" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            stutype: 'XXX',
+            institute: '清华大学',
+            department: 'XXXX',
+            major: 'XXXXXX',
+            studytype: '全日制',
+            direction: 'XXXXXX',
+            boss: 'XXX',
+            var1: '非专项计划',
+            var2: '非定向就业',
+            office: "XXXXXX",
+            enrolltime: "XXXXXX",
+            acc_time: "XXXXX"
+        }
+    })
+</script>
+
+</html>
